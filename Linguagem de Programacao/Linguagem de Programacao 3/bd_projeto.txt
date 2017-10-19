@@ -1,0 +1,60 @@
+DROP TABLE employee_project;
+DROP TABLE notebook;
+DROP TABLE project;
+DROP TABLE employee;
+DROP TABLE departament;
+
+
+CREATE TABLE departament(
+    departament_id INT NOT NULL AUTO_INCREMENT,
+    nameDepartament VARCHAR(100) NOT NULL,
+    PRIMARY KEY(departament_id)
+);
+
+CREATE TABLE employee(
+    employee_id INT NOT NULL AUTO_INCREMENT,
+    nameEmployee VARCHAR(100) NOT NULL,
+    adress VARCHAR(200) NOT NULL,
+    cpf VARCHAR(15) NOT NULL,
+    tel VARCHAR(15) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    birthday DATE NOT NULL,
+    departament_fk INT NOT NULL,
+    PRIMARY KEY(employee_id),
+    FOREIGN KEY(departament_fk) REFERENCES departament (departament_id)
+);
+
+CREATE TABLE notebook(
+    notebook_id INT NOT NULL AUTO_INCREMENT,
+    employee_fk INT NOT NULL,
+    brand VARCHAR(50),
+    PRIMARY KEY(notebook_id),
+    FOREIGN KEY(employee_fk) REFERENCES employee (employee_id) ON DELETE CASCADE
+);
+
+CREATE TABLE project(
+    project_id INT NOT NULL AUTO_INCREMENT,
+    nameProject VARCHAR(100),
+    description VARCHAR(1000),
+    PRIMARY KEY(project_id)
+    
+);
+
+CREATE TABLE employee_project(
+    employeeProject_id INT NOT NULL AUTO_INCREMENT,
+    employee_fk INT NOT NULL,
+    project_fk INT NOT NULL,
+    workingHours INT NOT NULL,
+    PRIMARY KEY(employeeProject_id),
+    FOREIGN KEY(employee_fk) REFERENCES employee (employee_id),
+    FOREIGN KEY(project_fk) REFERENCES project (project_id)
+);
+
+
+INSERT INTO departament(nameDepartament) VALUES ("Gerência");
+INSERT INTO departament(nameDepartament) VALUES ("Vendas");
+INSERT INTO departament(nameDepartament) VALUES ("Compras");
+INSERT INTO departament(nameDepartament) VALUES ("RH");
+
+INSERT INTO employee(nameEmployee,adress,cpf,tel,email,birthday,departament_fk) VALUES ("Pedro da Silva","Rua Augusta,7444","14522552","1452-5214","pedro@gmail.com",'1990-10-12',2);
+INSERT INTO employee(nameEmployee,adress,cpf,tel,email,birthday,departament_fk) VALUES ("Joao Augusto","Av Paulista,7854","15222072","8412-5058","joao@gmail.com",'1991-09-12',2);
