@@ -1,0 +1,15 @@
+SELECT * FROM pessoas WHERE nascimento>'1997-01-01';
+
+SELECT * FROM pessoas WHERE nascimento<'1991-01-01';
+
+SELECT * FROM pessoas WHERE nascimento>'1990-01-01' and nascimento<'1997-01-01';
+
+SELECT * FROM pessoas WHERE nascimento<'1997-01-01' and resid_cidade='Guarulhos';
+
+SELECT * FROM pessoas WHERE resid_cidade='Guarulhos' or resid_cidade='Aruja';
+
+SELECT * FROM pessoas WHERE YEAR(nascimento) = '1986';
+
+SELECT * FROM pessoas WHERE YEAR(nascimento) = '1986' AND resid_cidade='Aruja';
+
+
