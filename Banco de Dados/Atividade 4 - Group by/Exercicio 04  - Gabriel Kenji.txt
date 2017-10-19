@@ -1,0 +1,30 @@
+SELECT a,sum(b) as soma_de_b FROM tab_numeros GROUP BY a;
+
+SELECT a,sum(b)as soma_de_b FROM tab_numeros GROUP BY a ORDER BY soma_de_b DESC;
+
+SELECT a,count(b)as contagem_de_b FROM tab_numeros GROUP BY a;
+
+SELECT a,avg(b)as media_de_b FROM tab_numeros GROUP BY a;
+
+SELECT a,sum(b) as soma_de_b,count(b) as contagem_de_b,avg(b) as media_de_b FROM tab_numeros GROUP BY a;
+
+SELECT h,sum(e) as soma_de_e ,count(d) as contagem_de_d,avg(a) as media_de_a FROM tab_numeros GROUP BY h WHERE soma_de_e > 450;
+
+SELECT h,sum(e) as soma_de_e,count(d) as contagem_de_d,avg(a) as media_de_a FROM tab_numeros GROUP BY h HAVING soma_de_e > 450;
+
+SELECT h,sum(e) as soma_de_e,count(d) as contagem_de_d,avg(a) as media_de_a FROM tab_numeros GROUP BY h HAVING contagem_de_d > 110;
+
+SELECT a,sum(b) as soma_de_b FROM tab_numeros GROUP BY a HAVING soma_de_b >= 6;
+
+SELECT pedidos.*,clientes.* from pedidos,clientes WHERE pedidos.idcliente = clientes.idcliente;
+
+SELECT pedidos.*,clientes.nome,produtos.* from pedidos,clientes,produtos WHERE pedidos.idcliente = clientes.idcliente AND pedidos.idproduto = produtos.idproduto;
+
+SELECT pedidos.*,clientes.nome,produtos.* from pedidos,clientes,produtos WHERE pedidos.idcliente = clientes.idcliente AND pedidos.idproduto = produtos.idproduto
+ORDER BY nome,data;
+
+SELECT pedidos.idcliente,pedidos.qtde,clientes.nome, produtos.*, sum(pedidos.qtde * produtos.preco) FROM pedidos,clientes,produtos WHERE pedidos.idcliente = clientes.idcliente AND pedidos.idproduto = produtos.idproduto GROUP BY pedidos.idcliente;
+
+SELECT pedidos.idcliente,pedidos.qtde,clientes.nome, produtos.*, sum(pedidos.qtde * produtos.preco) as total FROM pedidos,clientes,produtos WHERE pedidos.idcliente = clientes.idcliente AND pedidos.idproduto = produtos.idproduto GROUP BY pedidos.idcliente ORDER BY total DESC;
+
+SELECT pedidos.idcliente,pedidos.qtde,clientes.nome, produtos.*, sum(pedidos.qtde * produtos.preco) as total FROM pedidos,clientes,produtos WHERE pedidos.idcliente = clientes.idcliente AND pedidos.idproduto = produtos.idproduto GROUP BY pedidos.idcliente HAVING total > 500 ORDER BY total DESC;
