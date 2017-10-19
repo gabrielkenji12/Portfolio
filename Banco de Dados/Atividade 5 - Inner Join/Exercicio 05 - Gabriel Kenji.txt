@@ -1,0 +1,15 @@
+SELECT ta.*,tb.* FROM ta INNER JOIN tb ON ta.a = tb.b
+
+SELECT ta.*,tb.* FROM ta LEFT OUTER JOIN tb ON ta.a = tb.b ORDER BY a
+
+SELECT ta.*,tb.* FROM ta RIGHT OUTER JOIN tb ON ta.a = tb.b ORDER BY b
+
+SELECT ta.*,tb.* FROM ta FULL OUTER JOIN tb ON ta.a = tb.b
+
+SELECT reclamacoes.*,pedidos.* FROM reclamacoes LEFT OUTER JOIN pedidos ON reclamacoes.idpedido = pedidos.idpedido
+ 
+SELECT reclamacoes.*,pedidos.* FROM reclamacoes RIGHT OUTER JOIN pedidos ON reclamacoes.idpedido = pedidos.idpedido
+
+SELECT pedidos.*,reclamacoes.*, clientes.nome FROM pedidos LEFT OUTER JOIN reclamacoes ON reclamacoes.idpedido = pedidos.idpedido LEFT JOIN clientes ON pedidos.idcliente = clientes.idcliente
+
+SELECT pedidos.*,reclamacoes.*, clientes.nome,produtos.cod_produto,produtos.nom_produto FROM pedidos LEFT OUTER JOIN reclamacoes ON reclamacoes.idpedido = pedidos.idpedido LEFT JOIN clientes ON pedidos.idcliente = clientes.idcliente LEFT JOIN produtos ON pedidos.idproduto = produtos.idproduto
