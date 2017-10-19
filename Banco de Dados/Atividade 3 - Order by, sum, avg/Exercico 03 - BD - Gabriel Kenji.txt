@@ -1,0 +1,56 @@
+SELECT * FROM pessoas ORDER BY nome;
+
+SELECT * FROM pessoas ORDER BY nascimento DESC;
+
+SELECT * FROM pessoas ORDER BY resid_cidade, nascimento DESC;
+
+SELECT count(*) FROM pessoas WHERE resid_cidade='guarulhos';
+
+SELECT * FROM clientes WHERE idcliente IN(select idcliente from pedidos WHERE idcliente = idcliente);
+
+SELECT * FROM clientes WHERE idcliente NOT IN(select idcliente from pedidos);
+
+SELECT * FROM t1 UNION SELECT * FROM t2;
+
+SELECT * FROM t1 UNION ALL SELECT * FROM t2;
+
+SELECT * FROM t1 INTERSECT ALL SELECT * FROM t2;
+
+SELECT DISTINCT d FROM tab_numeros ORDER BY d;
+
+SELECT * FROM clientes WHERE nome LIKE '%SILVA%';
+
+SELECT * FROM clientes WHERE nome LIKE '%SILVA';
+
+SELECT * FROM clientes WHERE nome LIKE 'SILVA%';
+
+SELECT count(*) FROM tab_numeros WHERE c BETWEEN '3' and '7';
+
+SELECT sum(h) FROM tab_numeros;
+
+SELECT count(j) FROM tab_numeros WHERE j=9;
+
+SELECT sum(j) FROM tab_numeros WHERE j=9;
+
+SELECT avg(a) FROM tab_numeros WHERE a BETWEEN 4 AND 6;
+SELECT avg(b) FROM tab_numeros WHERE b BETWEEN 4 AND 6;
+SELECT avg(c) FROM tab_numeros WHERE c BETWEEN 4 AND 6;
+SELECT avg(d) FROM tab_numeros WHERE d BETWEEN 4 AND 6;
+SELECT avg(e) FROM tab_numeros WHERE e BETWEEN 4 AND 6;
+SELECT avg(f) FROM tab_numeros WHERE f BETWEEN 4 AND 6;
+SELECT avg(g) FROM tab_numeros WHERE g BETWEEN 4 AND 6;
+SELECT avg(h) FROM tab_numeros WHERE h BETWEEN 4 AND 6;
+SELECT avg(i) FROM tab_numeros WHERE i BETWEEN 4 AND 6;
+SELECT avg(j) FROM tab_numeros WHERE j BETWEEN 4 AND 6;
+
+SELECT count(d) from tab_numeros WHERE d=7;
+
+SELECT max(g) from tab_numeros;
+SELECT min(g) from tab_numeros;
+
+SELECT (sum(g)/count(g)) from tab_numeros;
+
+SELECT avg(g) from tab_numeros;
+
+
+
