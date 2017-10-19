@@ -1,0 +1,3 @@
+01660705:Jonatas:01660705@mackenzista.com.br:GRAD:120
+53951135:Lucas:53951135@mackenzista.com.br:POS:Controle de robôs:Furukawa
+95766093:Rubens:95766093@mackenzista.com.br:GRAD:220
