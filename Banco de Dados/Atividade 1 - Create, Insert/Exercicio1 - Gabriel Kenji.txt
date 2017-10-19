@@ -1,0 +1,79 @@
+CREATE TABLE clientes(
+    idcliente INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    telef_fix CHAR(15),
+    telef_cel CHAR(15),
+    email VARCHAR(60) NOT NULL,
+    data_nascimento DATE,
+    cpf CHAR(15) NOT NULL,
+    data_hora_cadastro TIMESTAMP NOT NULL default CURRENT_TIMESTAMP,
+    cep CHAR(10) NOT NULL,
+    logradouro VARCHAR(50) NOT NULL,
+    numero CHAR(10) NOT NULL,
+    complemento VARCHAR(20),
+    bairro VARCHAR(30) NOT NULL,
+    cidade VARCHAR(30) NOT NULL,
+    estado CHAR(2) NOT NULL
+);
+
+CREATE TABLE produtos(
+    idproduto INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    descricao TEXT NOT NULL,
+    preco FLOAT NOT NULL,
+    qtd_estoque INT NOT NULL
+);
+
+
+INSERT INTO clientes(nome,telef_fix,telef_cel,email,data_nascimento,cpf,cep,logradouro,numero,complemento,bairro,cidade,estado) VALUES('Gabriel Kenji','1234-1234','9 4444-4444','gabriel@gmail.com','1995-12-12','123.123.123-0','030030-9','rua a','78','A','Jardim Europa','São Paulo','SP');
+INSERT INTO clientes(nome,telef_fix,email,data_nascimento,cpf,cep,logradouro,numero,complemento,bairro,cidade,estado) VALUES('João das Neves','1245-7234','jaum@gmail.com','1999-10-12','122.223.133-0','035530-9','rua b','78','B','Parque São Jorge','São Paulo','SP');
+INSERT INTO clientes(nome,email,data_nascimento,cpf,cep,logradouro,numero,complemento,bairro,cidade,estado) VALUES('Neymar','neymar@gmail.com','1999-09-12','133.323.023-0','030030-9','rua c','98','C','Jardim Verde','São Paulo','SP');
+INSERT INTO clientes(nome,telef_fix,telef_cel,email,data_nascimento,cpf,cep,logradouro,numero,complemento,bairro,cidade,estado) VALUES('Lucas', '3596-7242', '9 8729-8498', 'lucas_vsantos3@hotmail', '1994-12-05', '438.342.4988-2', '01224-020', 'Rua Aureliano Coutinho', '278', 'apto41', 'Higienopolis', 'São Paulo', 'SP');
+INSERT INTO clientes(nome,telef_fix,telef_cel,email,data_nascimento,cpf,cep,logradouro,numero,complemento,bairro,cidade,estado) VALUES('Pedro', '3131-3535', '9 8985-4343', 'pedro_vsantos3@hotmail', '1994-10-04', '438.555.3232-2', '01224-021', 'Rua Aureliano PASSADO', '288', 'apto44', 'Higienopolis', 'Belo Horizonte', 'MG');
+
+INSERT INTO produtos(nome, descricao, preco, qtd_estoque) VALUES('Omo multiacao', 'Lava roupa like a boss', 8.50, 3);
+
+
+INSERT INTO produtos(nome, descricao, preco, qtd_estoque) VALUES('Stella', 'Cerevja belga', 3.50, 20);
+
+
+INSERT INTO produtos(nome, descricao, preco, qtd_estoque) VALUES('Skol Beats', 'Desce redondo', 2.69, 100);
+
+
+INSERT INTO produtos(nome, descricao, preco, qtd_estoque) VALUES('Askov Flavours', 'Todos os sabores com um toque alcoolico', 12, 50);
+
+
+INSERT INTO produtos(nome, descricao, preco, qtd_estoque) VALUES('chicabon', 'O verdadeiro sorvete de chocolate', 22, 10);
+
+
+INSERT INTO produtos(nome, descricao, preco, qtd_estoque) VALUES('Bombril', 'Deixa tudo novo', 1.90, 60);
+
+
+INSERT INTO produtos(nome, descricao, preco, qtd_estoque) VALUES('Heineken', 'Cerveja dos campeoes', 3.80, 35);
+
+
+INSERT INTO produtos(nome, descricao, preco, qtd_estoque) VALUES('Miller', 'Cerveja da america', 3.75, 15);
+
+
+INSERT INTO produtos(nome, descricao, preco, qtd_estoque) VALUES ('Colorado', 'Cerveja com toque de mel', 12.25, 10);
+
+
+INSERT INTO produtos(nome, descricao, preco, qtd_estoque) VALUES('Trakinas', 'A bolacha q e a sua cara', 4.50, 130);
+
+
+UPDATE clientes SET telef_fix = '7680-1234' WHERE nome = 'Gabriel Kenji';
+
+UPDATE produtos SET qtd_estoque = 10 WHERE nome ='Trakinas';
+UPDATE produtos SET preco = 4 WHERE nome = 'Trakinas';
+
+UPDATE produtos SET qtd_estoque = 5, preco = 10 WHERE nome ='Colorado';
+
+SELECT * FROM clientes WHERE idcliente = 1;
+
+SELECT * FROM produtos WHERE idproduto = 1;
+
+SELECT * FROM clientes WHERE estado = 'SP';
+
+SELECT * FROM clientes WHERE estado = 'MG';
+
+DELETE FROM produtos WHERE idproduto = 1;
